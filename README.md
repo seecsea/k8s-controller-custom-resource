@@ -11,7 +11,7 @@ An example of a custom Kubernetes controller that's only purpose is to watch for
 Clone repo:
 
 ```
-$ git clone https://github.com/resouer/k8s-controller-custom-resource
+$ git clone https://github.com/seecsea/k8s-crd-samp
 $ cd k8s-controller-custom-resource
 ```
 
@@ -48,3 +48,10 @@ $ kubectl apply -f example/example-network.yaml
 CURD the Network API instance, and check the logs of controller. 
 
 Enjoy!
+
+## 新版本依赖处理说明
+1、删除了原来的Godeps目录，改为go.mod管理依赖  
+2、https://v1-16.docs.kubernetes.io/docs/setup/release/notes/里废弃了DirectCodecFactory，所以有几种选择：  
+... a、使用不高于1.16.0的client-go版本，比如：v0.15.12，代码完全不用改  
+... b、使用v0.17.0的client-go，使用上述文档里的替代方法：serializer.WithoutConversionCodecFactory  
+... c、如果升级到更新的开发环境比如v0.18.8的client-go，则有几个函数里要添加context.TODO(),  

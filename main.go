@@ -10,9 +10,9 @@ import (
 	// Uncomment the following line to load the gcp plugin (only required to authenticate against GKE clusters).
 	// _ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 
-	clientset "github.com/resouer/k8s-controller-custom-resource/pkg/client/clientset/versioned"
-	informers "github.com/resouer/k8s-controller-custom-resource/pkg/client/informers/externalversions"
-	"github.com/resouer/k8s-controller-custom-resource/pkg/signals"
+	clientset "github.com/seecsea/k8s-crd-samp/pkg/client/clientset/versioned"
+	informers "github.com/seecsea/k8s-crd-samp/pkg/client/informers/externalversions"
+	"github.com/seecsea/k8s-crd-samp/pkg/signals"
 )
 
 var (
@@ -54,6 +54,6 @@ func main() {
 }
 
 func init() {
-	flag.StringVar(&kubeconfig, "kubeconfig", "", "Path to a kubeconfig. Only required if out-of-cluster.")
+	flag.StringVar(&kubeconfig, "kubeconfig", "D:\\kube1188config", "Path to a kubeconfig. Only required if out-of-cluster.")
 	flag.StringVar(&masterURL, "master", "", "The address of the Kubernetes API server. Overrides any value in kubeconfig. Only required if out-of-cluster.")
 }
